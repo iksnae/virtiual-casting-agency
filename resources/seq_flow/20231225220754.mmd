@@ -1,0 +1,8 @@
+sequenceDiagram
+    participant M as Main
+    participant SA as ScreenplayAnalysis
+    participant NLP as NlpEngine
+    M->>SA: analyze(screenplay)
+    SA->>NLP: process(input=screenplay['text'])
+    NLP-->>SA: return analysis
+    SA-->>M: return screenplay_analysis

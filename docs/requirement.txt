@@ -1,0 +1,26 @@
+
+build a LLM powered virtual casting agency that performs screenplay analysis to augment our production pipeline, extracting insightful character, location, scene and dialogue reports as well as and other screenplay analysis information.
+
+note: this is internal tool, so no need for competitive analysis or planning for external customers. we are using it to augment our process to provide AWS Polly voice casting for our screenplay projects. 
+
+client information:
+- name: Khaos Studio
+- about: animation studio focused on excellence in storytelling. internal software team develops platform and tools to automate animation tasks for studio. prefers open LLMs (llama2,mistral, mixtral, etc) instead of private models like OpenAI. makes heavy use of LMStudio and Ollama in-house.
+- existing solutions:
+    - screenplay ingestion process that parses the screenplay into structured JSON data
+        - Lambda backed API's accept POST request containing .fountain text in body or FDX file (FDX is converted to .fountain format, fountain file is parsed to JSON)
+            - the Fountain is plain text and parsed data is JSON containing structured data about the screenplay
+            - example parsed JSON: https://khaos-screenplayer-demospace.s3.us-west-2.amazonaws.com/pulp-fiction/screenplay/screenplay.json
+            - example fountain text: https://khaos-screenplayer-demospace.s3.us-west-2.amazonaws.com/pulp-fiction/screenplay/screenplay.fountain
+    - established schema for screenplay data ( see examples provided )
+    - S3 base solution for storing the screenplay project data
+    - service for producing the audio clips for dialogue and narration elements using AWS Polly
+- needs:
+    - voice casting based on screenplay data
+    - dialogue and narration analysis for realistic generation via SSML metadata
+
+other related solutions:
+- metaGPT
+- Autogen
+- LiteLLM
+- vLLM
